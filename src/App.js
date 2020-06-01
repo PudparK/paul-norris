@@ -7,7 +7,7 @@ import Button from "component/Button";
 
 async function getJoke() {
   let joke = await fetch(
-    "http://api.icndb.com/jokes/random?firstName=Paul&exclude=[explicit]"
+    "https://api.icndb.com/jokes/random?firstName=Paul&exclude=[explicit]"
   );
 
   // just in case make a set of default jokes or default categories.
