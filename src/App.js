@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "logo.svg";
+import "App.css";
 
+import Billboard from "component/Billboard";
+import Button from "component/Button";
+
+async function getJoke() {
+  let joke = await fetch(
+    "http://api.icndb.com/jokes/random?firstName=Paul&exclude=[explicit]"
+  );
+
+  // just in case make a set of default jokes or default categories.
+  let jokeData = await joke.json();
+
+  return jokeData;
+}
+
+// useEffect for initial state
 function App() {
+  function initialJoke(cb) {
+    getJoke()
+      .then(function (res) {
+        cb(res);
+      })
+      .catch(function (e) {
+        console.log("Error", e);
+      });
+  }
+
+  let [joke, setJoke] = useState();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header"></header>
+
+      <Billboard joke={joke} />
+      <Button onClick={() => initialJoke(setJoke)} />
     </div>
   );
 }
