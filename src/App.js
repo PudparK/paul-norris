@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "logo.svg";
 import "App.css";
 
@@ -22,20 +22,29 @@ function App() {
     getJoke()
       .then(function (res) {
         cb(res);
+        console.log(res);
       })
       .catch(function (e) {
         console.log("Error", e);
       });
   }
 
-  let [joke, setJoke] = useState();
+  let [joke, setJoke] = useState(null);
+
+  useEffect(() => {
+    initialJoke((res) => {
+      setJoke(res);
+    });
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header"></header>
 
       <Billboard joke={joke} />
-      <Button onClick={() => initialJoke(setJoke)} />
+      <Button onClick={() => initialJoke(setJoke)} text={"Prev Joke"} />
+      {/*Previous joke might not hold it's position when you click back then forward*/}
+      <Button onClick={() => initialJoke(setJoke)} text={"Next Joke"} />
     </div>
   );
 }
