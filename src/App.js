@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import logo from "logo.svg";
-import "App.css";
+import "App.scss";
 
-import Billboard from "component/Billboard";
+import Container from "component/Container";
 import Button from "component/Button";
+import Joke from "component/Joke";
 
 async function getJoke() {
   let joke = await fetch(
@@ -38,14 +38,24 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header"></header>
+    <Container>
+      <h1>
+        Paul Norris<span>.</span>
+      </h1>
+      <h3>
+        <span>by </span>
+        <a href="https://www.pudpark.dev">
+          pudpark<span>.</span>dev
+        </a>
+      </h3>
 
-      <Billboard joke={joke} />
-      <Button onClick={() => initialJoke(setJoke)} text={"Prev Joke"} />
-      {/*Previous joke might not hold it's position when you click back then forward*/}
-      <Button onClick={() => initialJoke(setJoke)} text={"Next Joke"} />
-    </div>
+      <Joke joke={joke} />
+      <div className="buttonContainer">
+        <Button onClick={() => initialJoke(setJoke)} text={"Prev Joke"} />
+        {/*Previous joke might not hold it's position when you click back then forward*/}
+        <Button onClick={() => initialJoke(setJoke)} text={"Next Joke"} />
+      </div>
+    </Container>
   );
 }
 

@@ -1,0 +1,106 @@
+@import "./asset/scss/main.scss";
+:root {
+  --primary-red: #c8202f;
+  --primary-dark: #131313;
+  --react: #61daf6;
+  --javascript: #f7df1e;
+  --css: #2965f1;
+  --node: #3d8836;
+  --defaultColor: #c8202f;
+  --primary-line-height: 1;
+  --code: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  --pixel: "Press Start 2P", cursive;
+  --noto: "Noto Sans JP", sans-serif;
+}
+body {
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ffffff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+html {
+  font-size: 10px;
+  background: #131313;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0;
+  span {
+    color: #c8202f;
+  }
+}
+h3 {
+  color: #c8202f;
+  text-align: center;
+  margin-top: 0;
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  span {
+    font-size: 1.5rem;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      color: #dddddd;
+    }
+  }
+}
+.keys {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: calc(100vh - 150px);
+  align-content: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .keys {
+    display: flex;
+    margin-top: 0;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 300px);
+    align-content: center;
+    justify-content: center;
+  }
+  h1 {
+    font-size: 6rem;
+  }
+}
+
+.key {
+  border: 0.4rem solid #c8202f;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem 0.5rem;
+  transition: all 0.07s ease;
+  width: 10rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 0.5rem #131313;
+  cursor: pointer;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: #c8202f;
+  box-shadow: 0 0 1rem #c8202f;
+}

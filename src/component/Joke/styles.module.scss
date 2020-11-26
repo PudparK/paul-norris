@@ -1,0 +1,10 @@
+@import "../../asset/scss/main.scss";
+
+.joke {
+  font-size: 2rem;
+}
+@include large-devices {
+  .joke {
+    text-align: center;
+  }
+}

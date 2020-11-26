@@ -1,7 +1,12 @@
 import React from "react";
+import styles from "./styles.module.scss";
 
-function Button({ onClick, text }) {
-  return <button onClick={onClick}>{text}</button>;
+function Button({ text, onClick }) {
+  return (
+    <button onClick={onClick} className={styles.button + " noSelect"}>
+      {text}
+    </button>
+  );
 }
 
 export default Button;
