@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-<<<<<<< HEAD
 import "App.scss";
-=======
-import logo from "logo.svg";
-import "App.css";
-import fetchJoke from "util/jokeFetch";
->>>>>>> d25235cc494a34d0279fe1ba95351608ed249623
 
 import Container from "component/Container";
 import Button from "component/Button";
